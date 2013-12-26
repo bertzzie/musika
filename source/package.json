@@ -1,0 +1,13 @@
+{
+    "name": "musika",
+    "version": "0.0.1",
+    "author": "Alex Xandra Albert Sim <bertzzie@gmail.com>",
+    "description": "A simple music player with Node.Js, for demonstration on javascript class only.",
+    "main": "index.html",
+    "devDependencies": {
+    },
+    "license": "MIT",
+    "engine": {
+        "node": ">=0.10"
+    }
+}
