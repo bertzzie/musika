@@ -20,12 +20,31 @@
     
     var tracklist = function (spec) {
         var el = document.getElementById(spec.id),
+            tracks = [],
             that = {};
         
-        that.addTrack = function (name) {
-            var newTrack = document.createElement("li");
-            newTrack.textContent = name;
-            el.appendChild(newTrack);
+        that.addTrack = function (file) {
+            var newTrack = {
+                id: tracks.length + 1,
+                element: document.createElement("li"),
+                name: file.name,
+                path: file.path
+            },
+                i,
+                len = tracks.length;
+            
+            // check if files already added.
+            for (i = 0; i < len; i += 1) {
+                if (tracks[i].path == newTrack.path) {
+                    return;
+                }
+            }
+            
+            newTrack.element.textContent = newTrack.name;
+            newTrack.element.setAttribute("id", "track-" + newTrack.id);
+            el.appendChild(newTrack.element);
+            
+            tracks.push(newTrack);
         };
         
         return that;
@@ -62,7 +81,7 @@
                     el.addClass(spec.filledClass);
                     
                     for (i = 0; i < length; i += 1) {
-                        tracks.addTrack(files[i].name);
+                        tracks.addTrack(files[i]);
                     }
                     
                     el.removeClass(spec.overClass);
