@@ -18,6 +18,10 @@
         this.classList.remove(name);
     });
     
+    Element.method('hasClass', function (name) {
+        return this.classList.contains(name);
+    });
+    
     var tracklist = function (spec) {
         var el = document.getElementById(spec.id),
             tracks = [],
@@ -27,8 +31,13 @@
                         currentMusic;
                     
                     tracks.forEach(function (t) {
+                        if (t.element.hasClass("nowplaying")) {
+                            t.element.removeClass("nowplaying");
+                        }
+                        
                         if (t.id === trackId) {
                             currentMusic = t.path;
+                            t.element.addClass("nowplaying");
                         }
                     });
                     

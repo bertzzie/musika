@@ -47,8 +47,17 @@ body {
         padding: $trackPadding;
         text-align: left;
         
+        &.nowplaying {
+            background: $nowPlayingBackground;
+            color: $nowPlayingText;
+        }
+        
         &:nth-child(even) {
             background: $trackBackgroundOdd;
+            
+            &.nowplaying {
+                background: $nowPlayingBackground;
+            }
         }
         
         &:hover {
