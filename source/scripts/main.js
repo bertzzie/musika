@@ -35,7 +35,7 @@
             
             // check if files already added.
             for (i = 0; i < len; i += 1) {
-                if (tracks[i].path == newTrack.path) {
+                if (tracks[i].path === newTrack.path) {
                     return;
                 }
             }
