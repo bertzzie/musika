@@ -1,0 +1,52 @@
+@import 'variables';
+
+body {
+    font-family: $fontFamily;
+    font-size: $fontBaseSize;
+}
+
+#playlist {
+    border: $playlistBorderSize dashed #DDD;
+    border-radius: $playlistBorderSize * 3;
+    color: #DDD;
+    font-size: $fontBaseSize * 4;
+    font-weight: bolder;
+    line-height: $playlistHeight;
+    min-height: $playlistHeight - $playlistBorderSize;
+    min-width: $playlistWidth;
+    text-align: center;
+    
+    &.filled {
+        border: 1px solid #575757;
+        border-radius: 0;
+    }
+    
+    &.over {
+        background: rgba(15, 15, 15, 0.1);
+    }
+}
+
+#tracks {
+    color: $trackBackground;
+    font-size: $fontBaseSize * 0.8;
+    line-height: $fontBaseSize * 0.8;
+    margin: 0;
+    padding: 0;
+    
+    li {
+        list-style: none;
+        margin: $trackMargin;
+        padding: $trackPadding;
+        text-align: left;
+        
+        &:nth-child(even) {
+            background: $trackBackgroundOdd;
+        }
+        
+        &:hover {
+            background-color: $trackBackgroundHover;
+            color: $trackTextHover;
+            cursor: pointer;
+        }
+    }
+}
