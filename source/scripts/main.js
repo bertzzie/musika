@@ -21,6 +21,21 @@
     var tracklist = function (spec) {
         var el = document.getElementById(spec.id),
             tracks = [],
+            doubleclickHandler = function (trackId) {
+                return function () {
+                    var player = document.getElementById(spec.playerId),
+                        currentMusic;
+                    
+                    tracks.forEach(function (t) {
+                        if (t.id === trackId) {
+                            currentMusic = t.path;
+                        }
+                    });
+                    
+                    player.setAttribute("src", currentMusic);
+                    player.play();
+                };
+            },
             that = {};
         
         that.addTrack = function (file) {
@@ -42,6 +57,7 @@
             
             newTrack.element.textContent = newTrack.name;
             newTrack.element.setAttribute("id", "track-" + newTrack.id);
+            newTrack.element.addEventListener("dblclick", doubleclickHandler(newTrack.id), false);
             el.appendChild(newTrack.element);
             
             tracks.push(newTrack);
@@ -51,7 +67,7 @@
     },
         playlist = function (spec) {
             var el = document.getElementById(spec.id),
-                tracks = tracklist({id: spec.trackId}),
+                tracks = tracklist({id: spec.trackId, playerId: spec.playerId}),
                 removeDefaultText = function () {
                     var length = el.childNodes.length,
                         children = el.childNodes,
@@ -116,6 +132,7 @@
         var pl = playlist({
             id          : "playlist",
             trackId     : "tracks",
+            playerId    : "player",
             filledClass : "filled",
             overClass   : "over"
         });
