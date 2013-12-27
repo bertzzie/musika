@@ -5,6 +5,11 @@ body {
     font-size: $fontBaseSize;
 }
 
+#player {
+    margin: 1.5em auto;
+    width: 100%;
+}
+
 #playlist {
     border: $playlistBorderSize dashed #DDD;
     border-radius: $playlistBorderSize * 3;
