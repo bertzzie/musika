@@ -4,6 +4,15 @@
     "author": "Alex Xandra Albert Sim <bertzzie@gmail.com>",
     "description": "A simple music player with Node.Js, for demonstration on javascript class only.",
     "main": "index.html",
+    "window": {
+        "toolbar": false,
+        "width": 650,
+        "height": 510,
+        "min_width": 650,
+        "min_height": 510,
+        "max_width": 650,
+        "max_height": 510
+    },
     "devDependencies": {
     },
     "license": "MIT",
